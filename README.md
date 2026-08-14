@@ -18,11 +18,6 @@
 - 완전한 오픈 소스
 - 투명한 배치 스크립트를 기반으로 제작
 
-## IAS 최신 릴리스
-
-최신 릴리스 - v1.2 (2024년 2월 12일)  
-[GitHub](https://github.com/WindowsAddict/IDM-Activation-Script) - [BitBucket](https://bitbucket.org/WindowsAddict/idm-activation-script/)
-
 ## 다운로드 / 사용 방법
 
 - 먼저 [Internet Download Manager](https://www.internetdownloadmanager.com/)를 새로 설치합니다. 이전에 사용하던 크랙/패치가 있다면 모두 제거하거나 삭제했는지 확인하세요.
