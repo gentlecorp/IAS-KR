@@ -1,8 +1,6 @@
-# Notice:
+# 필독:
 
-## This project has been archived and is no longer being maintained.
-
-I've switched to FDM, don't want to keep up with IDM new nags anymore.
+## 이 프로젝트는 중단된지 오래이며, 단순 번역판입니다.
 
 ------------------------------------------------------------------------
 
