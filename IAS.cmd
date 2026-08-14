@@ -70,7 +70,7 @@ set "mas=ht%blank%tps%blank%://mass%blank%grave.dev/"
 sc query Null | find /i "RUNNING"
 if %errorlevel% NEQ 0 (
 echo:
-echo Null service is not running, script may crash...
+echo Null 서비스가 작동하기 않고 있습니다. 스크립트가 충돌할 수 있습니다.
 echo:
 echo:
 echo Help - %mas%idm-activation-script.html#Troubleshoot
@@ -85,7 +85,7 @@ cls
 pushd "%~dp0"
 >nul findstr /v "$" "%~nx0" && (
 echo:
-echo Error: Script either has LF line ending issue or an empty line at the end of the script is missing.
+echo 오류: 스크립트의 줄바꿈 문자에 문제가 있거나 스크립트 끝 빈줄이 누락되 있습니다.
 echo:
 ping 127.0.0.1 -n 6 >nul
 popd
@@ -159,14 +159,14 @@ set "_buf={$W=$Host.UI.RawUI.WindowSize;$B=$Host.UI.RawUI.BufferSize;$W.Height=3
 
 if %winbuild% LSS 7600 (
 %nceline%
-echo Unsupported OS version Detected [%winbuild%].
-echo Project is supported only for Windows 7/8/8.1/10/11 and their Server equivalent.
+echo [%winbuild%] 버전은 지원되지 않습니다.
+echo 이 스크립트는 윈도우 7/8/8.1/10/11 또는 동일한 윈도우 서버 버전에서 지원됩니다.
 goto done2
 )
 
 for %%# in (powershell.exe) do @if "%%~$PATH:#"=="" (
 %nceline%
-echo Unable to find powershell.exe in the system.
+echo 시스템에서 PowerShell을 찾을 수 없습니다.
 goto done2
 )
 
@@ -193,10 +193,10 @@ setlocal EnableDelayedExpansion
 echo "!_batf!" | find /i "!_ttemp!" %nul1% && (
 if /i not "!_work!"=="!_ttemp!" (
 %eline%
-echo Script is launched from the temp folder,
-echo Most likely you are running the script directly from the archive file.
+echo 스크립트가 임시 폴더에서 실행되었습니다.
+echo 압축 파일 내부에서 실행중인것으로 보입니다.
 echo:
-echo Extract the archive file and launch the script from the extracted folder.
+echo 압축을 풀고 실행해 주세요.
 goto done2
 )
 )
@@ -211,10 +211,10 @@ REM :PowerShellTest: $ExecutionContext.SessionState.LanguageMode :PowerShellTest
 %eline%
 %psc% $ExecutionContext.SessionState.LanguageMode
 echo:
-echo PowerShell is not working. Aborting...
-echo If you have applied restrictions on Powershell then undo those changes.
+echo PowerShell이 작동하지 않아 중단중...
+echo 만약 PowerShell에서 제한을 설정했다면 취소하고 다시 실행하세요
 echo:
-echo Check this page for help. %mas%idm-activation-script.html#Troubleshoot
+echo 문제가 있다면 도움말을 참조하세요. %mas%idm-activation-script.html#Troubleshoot
 goto done2
 )
 
@@ -225,8 +225,8 @@ goto done2
 %nul1% fltmc || (
 if not defined _elev %psc% "start cmd.exe -arg '/c \"!_PSarg!\"' -verb runas" && exit /b
 %eline%
-echo This script requires admin privileges.
-echo To do so, right click on this script and select 'Run as administrator'.
+echo 이 스크립트는 관리자 권한이 필요합니다
+echo 관리자 권한으로 실행해 주세요.
 goto done2
 )
 
@@ -277,14 +277,14 @@ if not [%%#]==[] (echo "%%#" | find "127.69" %nul1% && (echo "%%#" | find "127.6
 if defined old (
 echo ________________________________________________
 %eline%
-echo You are running outdated version IAS %iasver%
+echo 현재 IAS 구버전 (%iasver%)을 사용중입니다.
 echo ________________________________________________
 echo:
 if not %_unattended%==1 (
-echo [1] Get Latest IAS
-echo [0] Continue Anyway
+echo [1] IAS 업데이트
+echo [0] 무시
 echo:
-call :_color %_Green% "Enter a menu option in the Keyboard [1,0] :"
+call :_color %_Green% "원하는 숫자를 누르고 엔터를 눌러주세요 [1,0] :"
 choice /C:10 /N
 if !errorlevel!==2 rem
 if !errorlevel!==1 (start https://github.com/WindowsAddict/IDM-Activation-Script & start %mas%/idm-activation-script & exit /b)
@@ -297,7 +297,7 @@ cls
 title  IDM Activation Script %iasver%
 
 echo:
-echo Initializing...
+echo 초기화 중...
 
 ::  Check WMI
 
@@ -305,9 +305,9 @@ echo Initializing...
 %eline%
 %psc% "Get-WmiObject -Class Win32_ComputerSystem | Select-Object -Property CreationClassName"
 echo:
-echo WMI is not working. Aborting...
+echo WMI가 작동하지 않아 중단중...
 echo:
-echo Check this page for help. %mas%idm-activation-script.html#Troubleshoot
+echo 만약 문제가 발생할 경우 도움말을 참조하세요. %mas%idm-activation-script.html#Troubleshoot
 goto done2
 )
 
@@ -324,9 +324,9 @@ reg query HKU\%_sid%\Software %nul% || (
 %eline%
 echo:
 echo [%_sid%]
-echo User Account SID not found. Aborting...
+echo 계정 SID 가 발견되지 않아 중단중...
 echo:
-echo Check this page for help. %mas%idm-activation-script.html#Troubleshoot
+echo 만약 문제가 발생할 경우 도움말을 참조하세요. %mas%idm-activation-script.html#Troubleshoot
 goto done2
 )
 
@@ -376,9 +376,9 @@ set "idmcheck=tasklist /fi "imagename eq idman.exe" | findstr /i "idman.exe" %nu
 %nul% reg add %CLSID2%\IAS_TEST
 %nul% reg query %CLSID2%\IAS_TEST || (
 %eline%
-echo Failed to write in %CLSID2%
+echo %CLSID2%에 쓰기 실패.
 echo:
-echo Check this page for help. %mas%idm-activation-script.html#Troubleshoot
+echo 만약 문제가 발생한다면 도움말을 참조하세요. %mas%idm-activation-script.html#Troubleshoot
 goto done2
 )
 
@@ -458,14 +458,14 @@ call :add_key
 echo:
 echo %line%
 echo:
-call :_color %Green% "The IDM reset process has been completed."
+call :_color %Green% "IDM 재시작 완료."
 
 goto done
 
 :delete_queue
 
 echo:
-echo Deleting IDM registry keys...
+echo IDM 등록키 삭제중...
 echo:
 
 for %%# in (
@@ -531,20 +531,20 @@ if %frz%==0 if %_unattended%==0 (
 echo:
 echo %line%
 echo:
-echo      Activation is not working for some users and IDM may show fake serial nag screen.
+echo      일부 사용자의 경우 작동하지 않으며, 비정품 시리얼 메세지가 뜰 수 있습니다.
 echo:
-call :_color2 %_White% "     " %_Green% "Its recommended to use Freeze Trial option instead."
+call :_color2 %_White% "     " %_Green% "체험일수 정지를 추천합니다."
 echo %line%
 echo:
-choice /C:19 /N /M ">    [1] Go Back [9] Activate : "
+choice /C:19 /N /M ">    [1] 돌아가기 [9] 활성화 : "
 if !errorlevel!==1 goto :MainMenu
 cls
 )
 
 echo:
 if not exist "%IDMan%" (
-call :_color %Red% "IDM [Internet Download Manager] is not Installed."
-echo You can download it from  https://www.internetdownloadmanager.com/download.html
+call :_color %Red% "IDM [Internet Download Manager] 이 설치되어 있지 않습니다"
+echo https://www.internetdownloadmanager.com/download.html 에서 다운로드 할 수 있습니다.
 goto done
 )
 
@@ -575,7 +575,7 @@ set _time=
 for /f %%a in ('%psc% "(Get-Date).ToString('yyyyMMdd-HHmmssfff')"') do set _time=%%a
 
 echo:
-echo Creating backup of CLSID registry keys in %SystemRoot%\Temp
+echo %SystemRoot%\Temp 에 CLSID 레지스트리 백업중...
 
 reg export %CLSID% "%SystemRoot%\Temp\_Backup_HKCU_CLSID_%_time%.reg"
 if not %HKCUsync%==1 reg export %CLSID2% "%SystemRoot%\Temp\_Backup_HKU-%_sid%_CLSID_%_time%.reg"
@@ -590,9 +590,9 @@ if %frz%==0 call :register_IDM
 call :download_files
 if not defined _fileexist (
 %eline%
-echo Error: Unable to download files with IDM.
+echo 오류 : IDM 으로 파일을 다운로드 받을 수 없습니다.
 echo:
-echo Help: %mas%idm-activation-script.html#Troubleshoot
+echo 도움말: %mas%idm-activation-script.html#Troubleshoot
 goto :done
 )
 
