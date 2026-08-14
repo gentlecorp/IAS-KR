@@ -6,142 +6,98 @@
 
 ## IDM Activation Script
 
-An open-source tool to activate and reset the trial of [Internet Download Manager](https://www.internetdownloadmanager.com/)
+[Internet Download Manager](https://www.internetdownloadmanager.com/)의 체험 일수를 바꾸거나 활성화 할 수 있는 오픈소스 툴 입니다.
 
-## Features
+## 기능
 
--   IDM freeze trial and activation with registry key lock method
--   Activation and trial persist even after installing IDM updates
--   IDM trial reset
--   Fully open source
--   Based on the transparent batch script
+- 레지스트리 키 잠금 방식을 이용한 IDM 체험판 동결 및 활성화
+- IDM 업데이트를 설치한 후에도 활성화 및 체험판 상태 유지
+- IDM 체험판 초기화
+- 완전한 오픈 소스
+- 투명한 배치 스크립트를 기반으로 제작
 
-## IAS Latest Release
+## IAS 최신 릴리스
 
-Last Release - v1.2 (12-Feb-2024)\
+최신 릴리스 - v1.2 (2024년 2월 12일)  
 [GitHub](https://github.com/WindowsAddict/IDM-Activation-Script) - [BitBucket](https://bitbucket.org/WindowsAddict/idm-activation-script/)
 
-## Download / How to use it?
+## 다운로드 / 사용 방법
 
--   First fresh install [Internet Download Manager](https://www.internetdownloadmanager.com/). Make sure previous cracks/patches are removed/uninstalled if there are any.
--   After that follow the below steps to activate it.
+- 먼저 [Internet Download Manager](https://www.internetdownloadmanager.com/)를 새로 설치합니다. 이전에 사용하던 크랙/패치가 있다면 모두 제거하거나 삭제했는지 확인하세요.
+- 그런 다음 아래 방법에 따라 활성화합니다.
 
-## Note
+## 참고
 
--   📌 The activation option is currently not working in the script, use the Freeze trial option to lock 30-day trial period for the lifetime.
+- 📌 현재 스크립트의 **활성화 옵션은 작동하지 않습니다.** 대신 **Freeze trial(체험판 동결)** 옵션을 사용하여 30일 체험 기간을 영구적으로 잠글 수 있습니다.
 
-### Method 1 - PowerShell
+## 방법 1 - PowerShell
 
-(Recommended)
+**(권장)**
 
--   Right-click on the Windows start menu and select PowerShell or Terminal (Not CMD).
--   Copy-paste the below code and press enter\
-    `irm https://massgrave.dev/ias | iex`
--   You will see the activation options, follow the on-screen instructions.
--   That's all.
+- Windows 시작 메뉴를 마우스 오른쪽 버튼으로 클릭하고 **PowerShell** 또는 **Terminal**을 선택합니다. (**CMD가 아님**)
+- 아래 코드를 복사하여 붙여넣고 Enter 키를 누릅니다.
 
-### Method 2 - Traditional
+  `irm https://massgrave.dev/ias | iex`
 
--   Download the file from [GitHub](https://github.com/WindowsAddict/IDM-Activation-Script/archive/refs/heads/main.zip) or [Bitbucket](https://bitbucket.org/WindowsAddict/idm-activation-script/get/main.zip)
--   Right-click on the downloaded zip file and extract
--   In the extracted folder, run the file named `IAS.cmd`
--   You will see the activation options, and follow onscreen instructions.
--   That's all.
+- 활성화 옵션이 표시되면 화면의 안내에 따라 진행합니다.
+- 이것으로 완료됩니다.
 
-## Info
+## 방법 2 - 기존 방식
 
-#### Freeze Trial
+- [GitHub](https://github.com/WindowsAddict/IDM-Activation-Script/archive/refs/heads/main.zip) 또는 [Bitbucket](https://bitbucket.org/WindowsAddict/idm-activation-script/get/main.zip)에서 파일을 다운로드합니다.
+- 다운로드한 ZIP 파일을 마우스 오른쪽 버튼으로 클릭하고 압축을 풉니다.
+- 압축을 푼 폴더에서 `IAS.cmd`라는 파일을 실행합니다.
+- 활성화 옵션이 표시되면 화면의 안내에 따라 진행합니다.
+- 이것으로 완료됩니다.
+- 혹은 이 저장소의 릴리즈에서도 다운로드 할 수 있습니다.
 
--   IDM provides a 30-day trial period, you can use this option in the script to lock this trial period for the lifetime so that you won't have to reset the trial again and your trial won't expire.
--   This method requires the Internet at the time of applying this option.
--   IDM updates can be installed directly without having to freeze it again.
+## 정보
 
-#### Activation
+### 체험판 동결 (Freeze Trial)
 
-(\*Currently not working)
+- IDM은 30일의 체험 기간을 제공합니다. 이 스크립트의 이 옵션을 사용하면 이 체험 기간을 **영구적으로 잠글 수 있어**, 이후 체험판을 다시 초기화할 필요가 없으며 체험 기간도 만료되지 않습니다.
+- 이 옵션을 적용할 때 인터넷 연결이 필요합니다.
+- IDM 업데이트는 다시 동결할 필요 없이 바로 설치할 수 있습니다.
 
--   This script applies the registry lock method to activate the Internet download manager (IDM).
--   This method requires the Internet at the time of activation.
--   IDM updates can be installed directly without having to activate it again.
--   After the activation, if in some cases, IDM starts to show an activation nag screen, then just run the activation option again without using the reset option.
+### 활성화 (Activation)
 
-#### Reset IDM Activation / Trial
+**(\* 현재 작동하지 않음)**
 
--   Internet download manager provides a 30-day trial period, you can use this script to reset this Activation / Trial period whenever you want.
--   This option also can be used to restore status if in case IDM reports a fake serial key and other similar errors.
+- 이 스크립트는 레지스트리 잠금 방식을 사용하여 Internet Download Manager를 활성화합니다.
+- 활성화할 때 인터넷 연결이 필요합니다.
+- 활성화 후에도 IDM 업데이트를 다시 활성화할 필요 없이 바로 설치할 수 있습니다.
+- 활성화 후 어떤 경우에 IDM이 다시 활성화 요구 화면을 표시한다면, **Reset 옵션을 사용하지 말고 Activation 옵션을 다시 실행**하면 됩니다.
 
-#### OS requirement
+### IDM 활성화 / 체험판 초기화
 
--   The project is supported for Windows 7/8/8.1/10/11 and their Server equivalent.
--   The PowerShell method to run IAS is supported on Windows 8 and higher.
+- Internet Download Manager는 30일의 체험 기간을 제공합니다. 이 스크립트를 사용하면 원하는 시점에 활성화/체험판 기간을 초기화할 수 있습니다.
+- IDM에서 가짜 시리얼 키를 감지하거나 이와 유사한 오류가 발생한 경우에도 상태를 복구하는 데 사용할 수 있습니다.
 
-#### Advanced Info
+## 운영체제 요구 사항
 
--   To activate in unattended mode, run the script with the `/act` parameter.
--   To freeze the trial in unattended mode, run the script with the `/frz` parameter.
--   To reset in unattended mode, run the script with the `/res` parameter.
+- Windows 7/8/8.1/10/11 및 해당 Server 버전
+- PowerShell 방식은 Windows 8 이상 필요
 
-## How does it work?
+## 고급 정보
 
--   IDM stores the data related to trial and activation across various registry keys. Some of these keys are locked to protect them from tampering and data is stored in a pattern to track the fake serial issue and the remaining trial days. To activate it, the script here simply generates those registry keys by triggering a few downloads in IDM, identifies those registry keys, and locks them so IDM can't edit and view them. That way IDM cannot show the warning that it's activated with a fake serial key.
+- 무인 모드로 활성화하려면 스크립트에 `/act` 매개변수를 사용합니다.
+- 무인 모드로 체험판을 동결하려면 `/frz` 매개변수를 사용합니다.
+- 무인 모드로 초기화하려면 `/res` 매개변수를 사용합니다.
 
-## Troubleshoot
+## 작동 원리
+- IDM은 체험판 및 활성화와 관련된 데이터를 여러 레지스트리 키에 저장합니다. 이러한 키 중 일부는 변경을 방지하기 위해 잠겨 있으며, 데이터는 가짜 시리얼 키 문제와 남은 체험 기간을 추적할 수 있는 방식으로 저장됩니다.
+- 활성화를 위해 이 스크립트는 IDM에서 몇 차례 다운로드를 실행하여 해당 레지스트리 키를 생성한 다음, 관련 레지스트리 키를 찾아 잠급니다. 이를 통해 IDM이 해당 키를 수정하거나 확인하지 못하게 하여 **가짜 시리얼 키로 활성화되었다는 경고가 표시되지 않도록 하는 방식**입니다.
 
--   Browser Integration Fix: [Chrome](https://www.internetdownloadmanager.com/register/new_faq/bi9.html) - [Firefox](https://www.internetdownloadmanager.com/register/new_faq/bi4.html)
--   Raise the issue on [Github](https://github.com/WindowsAddict/IDM-Activation-Script) with screenshots.
+## 문제 해결
 
-## Changelog
+- 브라우저 통합 문제 해결: [Chrome](https://www.internetdownloadmanager.com/register/new_faq/bi9.html) - [Firefox](https://www.internetdownloadmanager.com/register/new_faq/bi4.html)
+- 스크린샷과 함께 [Github](https://github.com/WindowsAddict/IDM-Activation-Script)에 문제를 제보하세요.
 
-#### v1.2
+## 크레딧
 
--   Added back activation option with a randomized name, email, and key in registration details along with a warning that it's not working for some users, the recommended option is to use Freeze trial.
-
-#### v1.1
-
--   IDM update 6.42b3 has started showing fake serial popups with IAS activation, due to this we have removed the activation option and replaced it with the Freeze trial option to lock the 30-day trial period for the lifetime.
--   Now the script will disable quick-edit in CMD windows using Powershell instead of editing registry, thanks to @abbodi1406 for the code and @awuctl for the idea.
--   Code to relaunch script with conhost.exe to avoid terminal app is now merged in quick-edit disable code, thanks to @abbodi1406.
-
-#### v1.0
-
--   Added the code to relaunch the script with conhost.exe if the script is running from the terminal app.
--   Fixed an issue in getting the current user account SID.
-
-#### v0.9
-
--   Fixed an issue where the script can not activate and reset IDM in non-admin user accounts.
--   Fixed an issue where the script incorrectly shows that IDM is activated.
--   Fixed an issue where a fake serial pop-up may appear. The script will also show the info to run the activation option again without using the reset option.
--   Fixed an issue where Powershell code to launch IAS may not work due to GitHub block in some regions. It will use the new [BitBucket](https://bitbucket.org/WindowsAddict/idm-activation-script/) repo as a fallback link.
--   IDM registry scanning and locking code is now written in Powershell.
--   The script update checker code is added to the script.
--   The script will now disable quick edit mode temporarily because users often click inside the script window and it pauses the script.
--   The script will back up the CLSISD registry keys before performing operations on them.
--   Many error checks are added to better identify the issues.
-
-#### v0.8
-
--   Move the project to [Github](https://github.com/WindowsAddict/IDM-Activation-Script) and [massgrave.dev](https://massgrave.dev/idm-activation-script.html)
--   Minor bug fixes
--   Add info to inform users that empty registry keys are being deleted when the script deletes a lot of them
-
-## Screenshots
-
-![](https://massgrave.dev/images/IAS.png?raw=true)
-
-![](https://massgrave.dev/images/IAS_Freeze_Trial.png?raw=true)
-
-## Credits
-
-|                                             |                                                                                                                                                                                                                                        |
-|----------------------|--------------------------------------------------|
-| Dukun Cabul                                 | Original researcher of this IDM trial reset and activation logic, made an Autoit tool for these methods, [IDM-AIO_2020_Final](https://nsaneforums.com/topic/371047-discussion-internet-download-manager-fixes/page/8/#comment-1632062) |
-| AveYo aka BAU                               | [reg_own lean and mean snippet](https://pastebin.com/XTPt0JSC)                                                                                                                                                                         |
-| [abbodi1406](https://github.com/abbodi1406) | Help in coding                                                                                                                                                                                                                         |
-| WindowsAddict                               | IAS Author                                                                                                                                                                                                                             |
-
-And thanks to the IAS users for their interest, feedback, and assistance.
-
-------------------------------------------------------------------------
-
-Made with Love ❤️
+| 기여자 | 내용 |
+|---|---|
+| Dukun Cabul | IDM 체험판 초기화 및 활성화 로직을 처음 연구한 사람으로, 이러한 방법을 위한 AutoIt 도구인 [IDM-AIO_2020_Final](https://nsaneforums.com/topic/371047-discussion-internet-download-manager-fixes/page/8/#comment-1632062)을 제작 |
+| AveYo aka BAU | [reg_own lean and mean snippet](https://pastebin.com/XTPt0JSC) 제공 |
+| [abbodi1406](https://github.com/abbodi1406) | 코드 작성 지원 |
+| WindowsAddict | IAS 제작자 |
